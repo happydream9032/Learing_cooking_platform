@@ -1,0 +1,539 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  color:#252422;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.custom-tooltip {
+  position: relative;
+}
+
+.custom-tooltip::after {
+  content: attr(data-tooltip);
+  visibility: hidden;
+  opacity: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.custom-tooltip:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+@-moz-document url-prefix() {
+  .hideScrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* Hide scrollbar in Safari and WebKit-based browsers */
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+  /* scrollbar-width: none; */
+}
+
+
+.boxShadow {
+  box-shadow: 0px 47px 28px rgba(39, 122, 3, 0.02), 0px 21px 21px rgba(39, 122, 3, 0.03), 0px 5px 11px rgba(39, 122, 3, 0.03), 0px 0px 0px rgba(39, 122, 3, 0.03);
+}
+
+.blurEnd {
+  position: relative;
+}
+
+.blurEnd:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 76px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  width: 180px;
+  height: 422px;
+}
+
+.blurEndGroup {
+  position: relative;
+}
+
+.blurEndGroup:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 64px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  width: 180px;
+  height: 461px;
+}
+
+.blurSignup {
+  position: relative;
+}
+
+.blurSignup:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, #D27722 0%, rgba(210, 119, 34, 0) 100%);
+  width: 100%;
+  height: 77px;
+}
+
+.blurSignup::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, #D27722 0%, rgba(210, 119, 34, 0) 100%);
+  transform: rotate(-180deg);
+  width: 100%;
+  height: 77px;
+}
+
+.blurSignin {
+  position: relative;
+}
+
+.blurSignin:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, #FFDBB8 0%, rgba(255, 219, 184, 0) 100%);
+  width: 100%;
+  height: 77px;
+}
+
+.blurSignin::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  right: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, #FFDBB8 0%, rgba(255, 219, 184, 0) 100%);
+  transform: rotate(-180deg);
+  width: 100%;
+  height: 77px;
+}
+
+.ellipsisShow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /* Number of lines to show before adding ellipsis */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.line {
+  display: flex;
+
+}
+
+.line:hover {
+  width: 6px;
+}
+
+.line:active {
+  width: 8px;
+}
+
+.ellipsisShow2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* Number of lines to show before adding ellipsis */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+
+.myCheckbox {
+  /* Hide the default checkbox appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Define the size and style of the custom checkbox */
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 219, 184, 1);
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.myCheckbox::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 105%;
+  height: 105%;
+  /* transition: opacity 0.2s ease-in-out; */
+  border-color: rgba(255, 219, 184, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myCheckbox:checked::after {
+  background-color: #D27722;
+  border-color: rgba(255, 219, 184, 1);
+  color: rgba(255, 219, 184, 1);
+  opacity: 1;
+}
+
+.myCheckbox {
+  border-color: #D27722;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+}
+
+.slider__track,
+.slider__range,
+.slider__left-value,
+.slider__right-value {
+  position: absolute;
+}
+
+.slider__track,
+.slider__range {
+  border-radius: 3px;
+  height: 5px;
+}
+
+.slider__track {
+  background-color: #D27722;
+  width: 100%;
+  z-index: 1;
+}
+
+.slider__range {
+  background-color: rgba(255, 219, 184, 1);
+  z-index: 2;
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 100%;
+  padding-right: 25px;
+  outline: none;
+}
+
+.thumb--left {
+  z-index: 3;
+}
+
+.thumb--right {
+  z-index: 4;
+}
+
+/* For Chrome browsers */
+.thumb::-webkit-slider-thumb {
+  background-color: rgba(255, 219, 184, 1);
+  border: 3px solid #D27722;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+/* For Firefox browsers */
+.thumb::-moz-range-thumb {
+  background-color: #f1f5f7;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #ced4da;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+.react-calendar {
+  /* width: 350px; */
+  max-width: 100%;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: none;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  color: #D27722;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #D27722;
+  color: white;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #D27722;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr[title] {
+  color: rgba(164, 164, 164, 1);
+  font-family: 'Outfit', "sans-serif";
+  font-size: 12px;
+  line-height: 15.12px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+  border-radius: 100%;
+  max-width: 32px;
+  max-height: 32px;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+
+.react-calendar__month-view__days__day--weekend {
+  color: #D27722;
+  font: bold !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: rgb(151, 151, 151);
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 100%;
+  font-family: 'Outfit', "sans-serif";
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  /* background-color: #e6e6e6; */
+  background-color: rgba(255, 219, 184, 1);
+}
+
+.react-calendar__tile--now {
+  background: rgba(255, 219, 184, 1);
+  color: #D27722;
+  font-weight: bold;
+}
+
+.react-calendar__tile--hasActive {
+  background: #D27722;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: rgba(255, 219, 184, 1);
+}
+
+.react-calendar__tile--active {
+  background: #D27722;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #D27722;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: rgba(255, 219, 184, 1);
+}
+
+
+.modalShadow {
+  box-shadow: 0px 59px 23px rgba(0, 0, 0, 0.01), 0px 33px 20px rgba(0, 0, 0, 0.05), 0px 15px 15px rgba(0, 0, 0, 0.09), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes animateMaxHeight {
+  from {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 200px;
+  }
+}
+
+@keyframes animatePadding {
+  from {
+    padding: 0;
+  }
+
+  to {
+    padding: 20px;
+  }
+}
+
+.custom-animation {
+  animation-name: animateMaxHeight, animatePadding;
+  animation-duration: 1s, 1s;
+  animation-delay: 0s, 1s;
+  animation-timing-function: ease, ease;
+  overflow: hidden;
+}
+
+.landingExploreAndLearn {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.landingExploreAndLearn:hover {
+  box-shadow: 0px 0px 0px 0px rgba(39, 122, 3, 0.03), 0px 5px 11px 0px rgba(39, 122, 3, 0.03), 0px 21px 21px 0px rgba(39, 122, 3, 0.03), 0px 47px 28px 0px rgba(39, 122, 3, 0.02), 0px 83px 33px 0px rgba(39, 122, 3, 0.00), 0px 130px 36px 0px rgba(39, 122, 3, 0.00);
+}
+
+.landingExploreAndLearnOrange {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.landingExploreAndLearnOrange:hover {
+  box-shadow: 0px 0px 0px 0px #D2772203, 0px 5px 11px 0px #D2772203, 0px 21px 21px 0px #D2772203, 0px 47px 28px 0px #D2772203, 0px 83px 33px 0px #D2772203, 0px 130px 36px 0px #D2772203;
+}
+
+
+.landingExploreAndLearnOrangePerma {
+  background-color: white;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 0px 0px #D2772203, 0px 5px 11px 0px #D2772203, 0px 21px 21px 0px #D2772203, 0px 47px 28px 0px #D2772203, 0px 83px 33px 0px #D2772203, 0px 130px 36px 0px #D2772203;
+}
